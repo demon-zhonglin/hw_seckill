@@ -1,24 +1,37 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/python
+"""
+华为商城抢购核心模块
+处理登录、选择商品、倒计时、抢购和提交订单等核心功能
+"""
+
 import json
 import threading
 import time
 from datetime import datetime
 from urllib.parse import unquote
+from typing import Optional, List
 
 from loguru import logger
-from selenium.common import StaleElementReferenceException, NoSuchElementException, TimeoutException, \
+from selenium.common import (
+    StaleElementReferenceException, 
+    NoSuchElementException, 
+    TimeoutException,
     ElementClickInterceptedException
+)
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.remote.webdriver import WebDriver
 
 import constants
+from constants import Selectors, Defaults, BuyingStatus
 from browser.browser_factory import BrowserFactory
 from config import Config
 from huawei_thread import HuaWeiThread
 from tools import utils, time_utils, expected_conditions_extension as ECE
+from tools.utils import statistics, retry
 
 class HuaWei:
     config = None

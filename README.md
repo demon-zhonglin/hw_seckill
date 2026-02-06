@@ -1,112 +1,215 @@
-# Hw_Seckill
-请安装保证Python版本大于等于3.6
+# Hw_Seckill v2.0
 
-## 特别声明:
+华为商城自动抢购脚本，支持华为 Mate 系列手机及其他热门商品。
 
-* 本仓库发布的`hw_seckill`项目中涉及的任何脚本，仅用于测试和学习研究，禁止用于商业用途，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断。
+> ⚠️ 请确保 Python 版本 >= 3.8
 
-* 本项目内所有资源文件，禁止任何公众号、自媒体进行任何形式的转载、发布。
+## ✨ v2.0 更新内容
 
-* `lov3smu` 对任何脚本问题概不负责，包括但不限于由任何脚本错误导致的任何损失或损害.
+- 🎨 **全新界面**：彩色日志输出、美化的配置显示、进度条支持
+- 🚀 **性能优化**：更快的时间同步、连接池复用、更精准的倒计时
+- 🛡️ **稳定性增强**：完善的异常处理、自动重试机制、更好的错误提示
+- 🔧 **功能增强**：
+  - 命令行参数支持
+  - 配置文件验证
+  - 代理服务器支持
+  - 抢购成功提示音
+  - 邮件通知功能
+  - 抢购统计信息
+- 📦 **代码重构**：更清晰的模块划分、完善的类型注解、详细的文档注释
 
-* 间接使用脚本的任何用户，包括但不限于建立VPS或在某些行为违反国家/地区法律或相关法规的情况下进行传播, `lov3smu` 对于由此引起的任何隐私泄漏或其他后果概不负责。
+## 📋 特别声明
 
-* 请勿将`hw_seckill`项目的任何内容用于商业或非法目的，否则后果自负。
+* 本仓库发布的 `hw_seckill` 项目仅用于**测试和学习研究**，禁止用于商业用途
+* 本项目内所有资源文件，禁止任何公众号、自媒体进行任何形式的转载、发布
+* 请勿将本项目用于商业或非法目的，否则后果自负
+* 使用本项目即视为已接受此声明
+* 本项目遵循 `GPL-3.0 License` 协议
 
-* 如果任何单位或个人认为该项目的脚本可能涉嫌侵犯其权利，则应及时通知并提供身份证明，所有权证明，我们将在收到认证文件后删除相关脚本。
+## 🎯 主要功能
 
-* 以任何方式查看此项目的人或直接或间接使用`hw_seckill`项目的任何脚本的使用者都应仔细阅读此声明。`lov3smu` 保留随时更改或补充此免责声明的权利。一旦使用并复制了任何相关脚本或`hw_seckill`项目，则视为您已接受此免责声明。
-  
-* 您必须在下载后的24小时内从计算机或手机中完全删除以上内容。  
-  
-* 本项目遵循`GPL-3.0 License`协议，如果本特别声明与`GPL-3.0 License`协议有冲突之处，以本特别声明为准。
+- [x] 自动登录华为商城（支持验证码、设备验证、信任浏览器）
+- [x] 自动选择商品规格（颜色、版本、套装）
+- [x] 精准时间同步（与华为服务器时间同步）
+- [x] 自动抢购下单
+- [x] 多线程并发抢购
+- [x] 多浏览器支持（Chrome、Edge、Firefox）
+- [x] 无头模式支持
+- [x] 代理服务器支持
+- [x] 抢购成功通知（声音、邮件）
 
-> ***您使用或者复制了本仓库且本人制作的任何代码或项目，则视为`已接受`此声明，请仔细阅读***  
-> ***您在本声明未发出之时点使用或者复制了本仓库且本人制作的任何代码或项目且此时还在使用，则视为`已接受`此声明，请仔细阅读***
+## 🖥️ 运行环境
 
-## 简介
-华为Mate60手机发布后，手机非常火爆，一机难求，拼手速压根抢不到手机。于是`lov3smu`萌生了一个想法，通过程序自动抢购手机，说干就干，`lov3smu`大干一晚终于把脚本撸了出来。
-目前程序可能不太稳定，有时会抽风，后期会慢慢优化，目前仅供测试和参考，有问题欢迎指正，不喜勿喷。 
-最新适配，支持Mate XT 非凡大师、以及支持即将发布的Mate 70系列手机。
+- Python >= 3.8
+- Chrome / Edge / Firefox 浏览器
+- 对应版本的浏览器驱动（支持自动下载）
 
-## 主要功能
+### 浏览器驱动下载
 
-- [x] 登陆华为商城（[www.vmall.com](https://www.vmall.com)）
-- [x] 自动使用配置账号密码登陆
-- [x] 首次登陆自动发送验证码
-- [x] 自动信任浏览器
-- [x] 秒杀配置等待抢购
-- [x] 开始自动抢购
-- [x] 自动提交订单
-- [x] 无窗口模式支持
-- [x] 多浏览器支持（chrome、~~firefox~~、edge、~~safari~~）
-- [x] 多线程支持
-- [x] 支持 Mate XT 非凡大师、Mate 70 系列等最新机型
-- [x] 支持 Mate XTS 非凡大师 最新机型
-- [ ] ~~移动端支持~~
+| 浏览器 | 驱动下载地址 |
+|--------|-------------|
+| Chrome | [ChromeDriver](https://sites.google.com/chromium.org/driver/downloads) |
+| Edge | [EdgeDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) |
+| Firefox | [GeckoDriver](https://github.com/mozilla/geckodriver/releases) |
 
-## 运行环境
-请安装大于等于python 3.6 的版本及同浏览器版本匹配的浏览器驱动运行此项目
+> 💡 v2.0 版本支持自动下载驱动，无需手动配置
 
-- [Python下载](https://www.python.org/)
-- [ChromeDriver下载](https://sites.google.com/chromium.org/driver/downloads)
-- [GeckoDriver下载](https://github.com/mozilla/geckodriver/releases)
-- [EdgeDriver下载](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
-- [SafariDriver无需下载]，需要设置里打开允许远程自动化
+## 📦 安装依赖
 
-## 第三方库
+```bash
+# 使用清华镜像加速
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
+```
 
-- 需要使用到的库已经放在requirements.txt，使用pip安装的可以使用指令  
-`pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/`
+## ⚙️ 配置说明
 
+编辑 `config.ini` 文件：
 
-## 使用教程
-#### 1. Chrome | Firefox ｜Edge 浏览器
-#### 2. 填写 config.ini 配置信息
-(1)账号信息：`name`、`password` 填写对应的华为账号、密码
+```ini
+[user]
+name=您的华为账号
+password=您的密码
 
-(2)商品信息：`name`、`id`、 `color`、`version`,`saleType`,`sets` 分别为对应的商品名称、商品ID、商品颜色或款式（宣白）、版本（16GB+512GB）、销售类型、套装规格
+[product]
+name=HUAWEI Mate XTs        # 商品名称（仅显示用）
+id=10086754422315           # 商品ID（必填）
+color=皓白                  # 商品颜色
+version=16GB+1TB            # 商品版本
+payment=全款购买            # 支付方式
+sets=                       # 套装规格（留空则抢购单品）
 
-> `id`默认填写Mate60Pro+，如需修改请自行修改
-> 
-> `color` 默认填写宣白，如需修改请自行修改对应商品对颜色或款式，如：手机为颜色、手表为款式
-> 
-> `version` 默认填写16GB+512GB，如需修改请自行修改对应商品的版本
-> 
-> `saleType` 销售类型，默认填写全款购买，如需修改请自行修改对应商品持的销售类型
-> 
-> `sets` 套装规格默认为空，当填写后程序将只抢购套装；需要填写套装对应的SKU信息，不同SKU信息之前采用“,”分割，如：“12GB+512GB 青山黛,木星棕 深棕色真皮表带,雅川青 无线充版”
+[browser]
+type=chrome                 # 浏览器类型
+headless=no                 # 是否无头模式
+; proxy=127.0.0.1:7890      # 代理服务器（可选）
 
+[process]
+thread=1                    # 并发线程数（1-20）
+interval=0.001              # 下单间隔（秒）
+timeout=30                  # 操作超时时间
+retryTimes=3                # 失败重试次数
 
-(3)浏览器：`type`、`driverPath`、 `headless`、 `userAgent` 分别对应浏览器类型、浏览器驱动绝对路径、是否开启无界面模式、userAgent：
+[notify]
+enableSound=yes             # 成功提示音
+enableEmail=no              # 邮件通知
+```
 
-> `type` 默认为chrome，可选：chrome、firefox、edge、safari，目前safari还有些问题不建议选择
-> 
-> `driverPath` 对应浏览器类型的驱动绝对路径，如果设置，则加载该路径的驱动，未设置需要将驱动加到环境变量
-> 
-> `headless` 是否开启无界面模式，默认为否，无界面模式需要设置userAgent
-> 
-> `userAgent` 需要填写对应浏览器的userAgent，如Chrome：Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+### 获取商品 ID
 
+1. 打开华为商城商品页面
+2. URL 中的 `prdId` 参数即为商品 ID
+3. 例如：`https://www.vmall.com/product/comdetail/index.html?prdId=10086754422315`
 
-(4)程序处理配置：`thread`、`interval` 分别为线程数、提交订单间隔时长：
+## 🚀 使用方法
 
-> `thread` 线程数，默认为1，表示单线程，最大线程数为20
-> 
-> `interval` 提交订单间隔时长，单位为“秒”，默认为0.001秒，最小为0.001秒
+### 基本使用
 
-以上都是必须的.
+```bash
+python main.py
+```
 
+### 命令行参数
 
-#### 3.运行main.py
-> python main.py
+```bash
+# 查看帮助
+python main.py -h
 
-## 关注我
-!["漫漫编程路"](assets/wechat.png)
+# 指定配置文件
+python main.py -c /path/to/config.ini
 
-## 打赏
-码代码不易，如果对你有帮助欢迎star和打赏，谢谢支持！
+# 开启调试模式
+python main.py -d
 
-<div align=left>
-  <img src="assets/reward.jpg" width=300 height=300  alt="打赏"/>
-</div>
+# 仅验证配置文件
+python main.py --validate
+
+# 查看版本
+python main.py -v
+```
+
+### 定时运行
+
+**Windows (wait_to_run.bat)**:
+```batch
+@echo off
+echo 等待抢购时间...
+timeout /t 60
+python main.py
+```
+
+**Linux/macOS (wait_to_run.sh)**:
+```bash
+#!/bin/bash
+echo "等待抢购时间..."
+sleep 60
+python3 main.py
+```
+
+## 📊 项目结构
+
+```
+hw_seckill/
+├── main.py              # 程序入口
+├── huawei.py            # 核心业务逻辑
+├── huawei_thread.py     # 多线程支持
+├── config.py            # 配置管理
+├── config.ini           # 配置文件
+├── constants.py         # 常量定义
+├── browser/             # 浏览器驱动模块
+│   ├── browser_factory.py
+│   ├── chrome.py
+│   ├── edge.py
+│   └── firefox.py
+├── tools/               # 工具模块
+│   ├── time_utils.py    # 时间工具
+│   ├── utils.py         # 通用工具
+│   └── my_logger.py     # 日志配置
+├── logs/                # 日志目录
+├── profiles/            # 浏览器配置目录
+└── requirements.txt     # 依赖列表
+```
+
+## 🔧 常见问题
+
+### 1. 浏览器驱动版本不匹配
+
+程序会自动下载匹配的驱动，如遇问题请手动下载对应版本驱动，并在配置中指定路径。
+
+### 2. 登录验证问题
+
+- 首次登录需要手动完成拼图验证
+- 短信验证码会自动发送，需要手动输入
+- 建议提前登录一次，信任浏览器
+
+### 3. 抢购失败
+
+- 检查网络连接
+- 确保商品 ID 正确
+- 增加线程数
+- 使用代理服务器
+
+### 4. 无头模式问题
+
+使用无头模式时，请务必配置 `userAgent`，否则可能被识别为自动化程序。
+
+## 📝 更新日志
+
+### v2.0.0 (2026-02-06)
+由Ai优化
+- 全面重构代码
+- 添加配置验证功能
+- 添加代理支持
+- 添加邮件通知
+- 优化时间同步精度
+- 美化界面输出
+
+### v1.0.0
+- 原作者版本
+
+## 🙏 致谢
+
+致谢原作者以及所有贡献者和使用者的支持！
+
+## 📄 License
+
+[GPL-3.0 License](LICENSE)
